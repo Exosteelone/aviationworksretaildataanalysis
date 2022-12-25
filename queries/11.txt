@@ -1,0 +1,7 @@
+-- Adventure work Head of sales would like to find out the cost difference between productcost and product price.
+
+select 
+	ProductPrice, 
+	ProductCost, 
+	ProductPrice - ProductCost as difference 
+from products;

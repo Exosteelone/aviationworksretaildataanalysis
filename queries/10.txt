@@ -1,0 +1,14 @@
+-- Write a SQL Query to increase the cost of products by 18% and round the data to the nearest number
+
+select * from products;
+
+select ProductPrice,
+       round(ProductPrice * 1.18) as NewProductPrice
+
+from products;
+
+alter table products add column NewProductPrice int;
+
+update products set products.NewProductPrice = round(ProductPrice * 1.18);
+
+select * from products;

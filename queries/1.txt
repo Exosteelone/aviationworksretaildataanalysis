@@ -1,0 +1,13 @@
+use avcdb;
+
+-- 1. Extract the Month, Day & Year I three different columns in Calendar Table,
+--    If Table not created please create the table based on the file received.
+
+update calendar set calendar.Date = str_to_date(str_to_date(date, '%c/%e/%Y');
+commit;
+desc calendar;
+alter table calendar CHANGE Date Date date;
+
+SELECT date,
+       MONTH(calendar.Date) AS `Month`, DAY(Date) as `Day`, YEAR(calendar.Date) as `year`
+FROM calendar;

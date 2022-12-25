@@ -1,0 +1,5 @@
+-- Write a query to find out which customer has placed most number of sales.
+
+with res as
+(select CustomerKey, count(*) as cnt from sales2017 group by CustomerKey order by count(*) desc)
+select a.FullName, r.customerKEy, max(cnt) from res r join customers a on r.CustomerKey = a.CustomerKey;

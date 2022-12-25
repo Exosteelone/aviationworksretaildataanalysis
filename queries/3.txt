@@ -1,0 +1,4 @@
+-- Write a query to find out the number of customer who are married.
+use avcdb;
+
+SELECT * FROM customers WHERE Gender = 'M';

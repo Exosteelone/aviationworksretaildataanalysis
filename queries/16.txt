@@ -1,0 +1,11 @@
+-- Write a sql query to find out the customers that have at least one sale from Northwest region of America.																																	-- 
+
+
+with res as (select * from sales2017 where TerritoryKey =
+(select SalesTerritoryKey from territories where Region = 'Northwest'))
+select res.CustomerKey, b.FullName from res join customers b on res.CustomerKey = b.CustomerKey;
+
+select *
+from customers
+where CustomerKey in
+      (select a.CustomerKey from sales2017 a join territories b on a.TerritoryKey = b.SalesTerritoryKey where Region = 'Northwest');

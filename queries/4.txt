@@ -1,0 +1,13 @@
+Replace the ($ , ) values from Annual Income and put the values in a new column that is Salary as numeric field.
+
+use avcdb;
+select * from customers;
+select AnnualIncome,
+       substr(regexp_replace(AnnualIncome, ',', ''), 2) as IncomeNumeric
+from customers;
+
+alter table customers add column IncomeNumeric int;
+
+update customers
+set customers.IncomeNumeric = substr(regexp_replace(AnnualIncome, ',', ''), 2);
+

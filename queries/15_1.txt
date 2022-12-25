@@ -1,0 +1,19 @@
+-- Adventure works have decided to change the product colour for a few of their products along which with their product size. Following is the information.
+
+select ProductColor,
+       case when ProductColor = 'Red' then 'Black'
+           when ProductColor = 'NA' then 'Blue'
+           when ProductColor = 'Multi' then 'Yellow'
+           else ProductColor
+           end as NewColor
+from products;
+
+alter table products add column NewColor VARCHAR(255);
+
+update products set products.NewColor = case when ProductColor = 'Red' then 'Black'
+           when ProductColor = 'NA' then 'Blue'
+           when ProductColor = 'Multi' then 'Yellow'
+           else ProductColor
+           end;
+
+select * from products;

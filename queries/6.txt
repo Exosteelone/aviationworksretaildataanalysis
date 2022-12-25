@@ -1,0 +1,22 @@
+-- Give Bonus to the following customer occupation. For other O
+
+select AnnualIncome, IncomeNumeric,
+       case
+           when Occupation = 'Professional' then 50000
+           when Occupation = 'Clerical' then 10000
+           when Occupation = 'Management' then 25000
+           when Occupation = 'Manual' then 2000
+           else 0
+           end as Bonus from customers;
+
+alter table customers add column Bonus int;
+update customers set customers.Bonus = case
+           when Occupation = 'Professional' then 50000
+           when Occupation = 'Clerical' then 10000
+           when Occupation = 'Management' then 25000
+           when Occupation = 'Manual' then 2000
+           else 0
+           end;
+
+select * from customers;
+commit ;

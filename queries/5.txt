@@ -1,0 +1,1 @@
+select count(*) customers_with_no_children from customers where TotalChildren = 0;

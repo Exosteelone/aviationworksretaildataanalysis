@@ -1,0 +1,21 @@
+-- Write a query to find out in which region the following sub category Road Bikes, Mountain Frames are sold
+--     and by which customer. Use CTE ??
+with 
+	res1 as (
+		select a.ProductKey, a.ProductName, b.SubcategoryName
+		from products a
+			join productsubcategories b
+				on a.ProductSubcategoryKey = b.ProductSubcategoryKey
+				),
+     res2 as (
+		select * 
+		from sales2017 c 
+			join territories d 
+				on c.TerritoryKey= d.SalesTerritoryKey
+				)
+select distinct res2.Region 
+from res2 
+	join res1 
+		on res1.ProductKey = res2.ProductKey
+where SubcategoryName = 'Road Bikes' OR SubcategoryName = 'Mountain Frames';
+

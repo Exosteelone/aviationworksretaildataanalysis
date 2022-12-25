@@ -1,0 +1,6 @@
+-- Write a query to display the sales for the order date 03/21/2017 for product key 540.
+
+select * from sales2017;
+
+select * from sales2017 where OrderDate = '3/21/2017' and ProductKey = 540;
+

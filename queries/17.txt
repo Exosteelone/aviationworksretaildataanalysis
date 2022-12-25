@@ -1,0 +1,7 @@
+-- Write a SQL Query to find out which customer has more than one order quantity.
+
+select * from sales2017;
+
+with res as
+(select CustomerKey, count(*) as cnt from sales2017 group by CustomerKey having cnt > 1 order by cnt desc)
+select customers.FullName, res.cnt from customers join res on res.CustomerKey = customers.CustomerKey;

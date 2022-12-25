@@ -1,0 +1,3 @@
+-- Give me a count of customers who have their own property.
+
+select count(*) as count from customers where HomeOwner = 'Y';

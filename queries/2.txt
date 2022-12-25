@@ -1,0 +1,16 @@
+--    Create a new column in Cutomer Table and as Full Name and let it have values from Prefix,
+--    First Name & Last Name.
+-- poc
+select Prefix, FirstName, LastName,
+       case when Prefix is null then concat(FirstName, ' ', LastName)
+           else concat(Prefix, ' ', FirstName, ' ', LastName) end as FullName
+from customers;
+
+-- transformation
+
+alter table customers add column FullName VARCHAR(255);
+select * from customers;
+
+update customers set FullName = case when Prefix is null then concat(FirstName, ' ', LastName)
+           else concat(Prefix, ' ', FirstName, ' ', LastName) end;
+

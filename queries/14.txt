@@ -1,0 +1,4 @@
+-- Write a SQL Query to find out the products returned for Region Germany.
+
+select * from returns a inner join territories b on a.TerritoryKey = b.SalesTerritoryKey inner join products c on a.ProductKey = c.ProductKey where b.Region = 'Germany';
+

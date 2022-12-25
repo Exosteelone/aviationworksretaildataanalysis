@@ -1,0 +1,5 @@
+Write a SQL Query to find out, which products were not, returned (Use tables Product & Returns) solve the query without ‘not in’ function.
+
+select a.ProductKey, a.ProductName
+from products a left outer join returns b on a.ProductKey = b.ProductKey
+where b.ProductKey is null;

@@ -1,0 +1,3 @@
+-- Write a SQL Query to find out the Customer Last Name starts with ‘RA’ & FIRST Name ending with ‘DA’and ensure there is no duplicate records seen when the output is displayed.
+
+select distinct * from customers where FirstName like '%DA' AND LastName LIKE 'RA%';
